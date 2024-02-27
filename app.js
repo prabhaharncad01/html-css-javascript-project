@@ -112,6 +112,9 @@ function addCartToHTML(){
         })
     }
     totalHTML.innerText = totalQuantity;
+
+    localStorage.setItem("totalQuantity");
+    window.open("index.html");
 }
 function changeQuantity($idProduct, $type){
     switch ($type) {
