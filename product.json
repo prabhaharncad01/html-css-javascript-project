@@ -1,0 +1,36 @@
+[{
+    "id":1,
+    "name":"perfume1",
+    "price":50,
+    "image":"new-product/N1-1.png"
+},
+{
+    "id":2,
+    "name":"perfume2",
+    "price":100,
+    "image":"new-product/N2-1.png"
+},
+{
+    "id":3,
+    "name":"perfume3",
+    "price":150,
+    "image":"new-product/N3.png"
+},
+{
+    "id":4,
+    "name":"perfume4",
+    "price":120,
+    "image":"new-product/N4-1.png"
+},
+{
+    "id":5,
+    "name":"perfume5",
+    "price":80,
+    "image":"new-product/N5-1.png"
+},
+{
+    "id":6,
+    "name":"perfume6",
+    "price":70,
+    "image":"new-product/N6-1.png"
+}]
