@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beast Perfumes</title>
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<style>
+
+        *{
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+              font-family: 'poppins', sans-serif;
+          }
+         body{
+            background-color: #51e2f5;
+         }
+          nav{
+    background:#4070f4;
+    width: 100%;
+    padding:  10px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo{
+   
+    text-transform: uppercase;
+    color: aqua;
+    text-wrap: wrap;
+
+}
+
+
+
+.user-pic{
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+nav ul{
+    width: 100%;
+    text-align: left;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+   
+}
+
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover{
+    color: red;
+}
+
+
+
+
+
+.sub-menu-wrap{
+    position: absolute;
+    top: 100%;
+    right:10%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    z-index: 5;
+}
+
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
+    z-index: 5;
+}
+
+
+
+
+.sub-menu{
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+    z-index: 5;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+    z-index: 5;
+}
+
+.user-info h3{
+    font-weight: 500;
+    z-index: 5;
+}
+
+.user-info >.signin,.signup{
+    display: inline-block;
+    text-wrap: wrap;
+}
+
+.signin{
+    margin: 10px;
+    padding: 10px;
+    border: #fff 1px solid;
+    box-shadow: #e5e5e5;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.signup{
+    margin: 10px;
+    padding: 10px;
+    border: #fff 1px solid;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+}
+.signup:hover{
+ background-color: #51e2f5;
+ color: #4070f4;
+ transform: translateX(5px);
+}
+
+.signin:hover{
+    background-color: #51e2f5;
+ color: #4070f4;
+ transform: translateX(5px);
+}
+.user-info  img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    z-index: 5;
+}
+
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+    z-index: 5;
+}
+
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+    z-index: 5;
+}
+
+.sub-menu-link  p{
+    width: 100%;
+    z-index: 5;
+}
+
+.sub-menu-link img{
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+    z-index: 5;
+}
+
+.sub-menu-link  span{
+    font-size: 22px;
+    transition: transform 0.5s;
+    z-index: 5;
+}
+
+.sub-menu-link:hover span{
+     transform: translateX(5px);
+     z-index: 5;
+}
+
+.sub-menu-link:hover p{
+    font-weight: 600;
+    z-index: 5;
+}
+
+#searchbar {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px;
+    box-sizing: border-box;
+ 
+  display: inline-block;
+
+}
+
+
+ .bx-search{
+    color: #fff;
+    cursor: pointer;
+   height: fit-content;
+   width: 10px;
+   border-right:#e5e5e5;
+   margin-top: 10px;
+   margin-bottom: 10px;
+    padding: 10px;
+   display: inline-block;
+ font-size: 25px;
+} 
+
+.searchbar{
+    border:0px solid black;
+    display: flex;
+}
+
+.iconcart{
+    display: flex;
+    margin-left: 30px;
+}
+
+
+.iconcart .bx-cart-alt{
+
+/* position: absolute; */
+display: inline-block;
+text-align: center;
+align-items: center;
+justify-content: center;
+}
+
+.bx-cart-alt{
+font-size: 30px;
+padding: 8px;
+display: inline-flex;
+color: #fff;
+position: relative;
+cursor: pointer;
+}
+
+
+
+
+.iconcart .totalquantity{
+position: relative;
+/* z-index: 2; */
+display: inline-flex;
+color: red;
+font-size: 20px;
+cursor: pointer;
+
+
+
+}
+
+.swiper {
+  width: 1350px;
+  height: 850px;
+}
+
+.swiper-slide img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+.container{
+            position: relative;
+            max-width: 1350px;
+            width: 100%;
+            margin: 50px auto;
+           
+            padding:20px;
+
+        }
+.filter-button{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+        button{
+            padding: 10px 20px;
+            font-size: 18px;
+            background: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+
+button.active{
+    background: #4070f4;
+    color: #fff;
+}
+
+
+.filterable-cards{
+    display: flex;
+    margin-top: 25px;
+    gap:20px;
+    flex-wrap: wrap;
+
+}
+.card{
+    /* flex-shrink:300px; */
+    width: 350px;
+    background-color: #FFF;
+    /* padding: px; */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    flex-grow: 1;
+}
+.card.hide{
+    display: none;
+}
+
+.card img{
+    width: 350px;
+height: 350px;
+object-fit:cover;
+border-radius: 8px 8px 0 0;
+}
+
+.card-body{
+padding: 15px 20px 20px ;
+}
+
+.card-title{
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+}
+
+.card-text{
+    font-size: 18px;
+    
+    color: #333;
+}
+
+.products{
+    font-size: 4em;
+text-align: center;
+    color: #4070f4;
+margin-top: 100px;
+margin-bottom: 100px;
+    position: relative;
+    letter-spacing: 15px;
+    width: 100%;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
+    line-height: 1.1em;
+    outline: none;
+    animation: animate 5s linear infinite;
+  
+
+}
+
+.ourproducts{
+    font-size: 50px;
+    text-align: center;
+    color: #4070f4;
+    text-transform: uppercase;
+    margin-top: 300px;
+    margin-bottom: 100px;
+}
+
+.ourproducts hr{
+    width: 1350px;
+    color: #4070f4;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+}
+
+
+.gifimg{
+
+        background-color: #a0d2eb;
+    height: 600px;
+    width: 100%;
+    margin-top: 200px;
+    
+    
+  .backvdo1{position: absolute;
+    left: 0;
+    bottom: auto;
+    margin-top: 50px;
+    margin-left: 50px;
+  align-items: center;
+align-content: center;}
+    .backvdo2{
+      position: absolute;
+    right: 0;
+    bottom: auto;
+    margin-top: 50px;
+    margin-right: 50px;
+    }
+   
+    .leftimg{
+      font-size: 30px;
+      text-align: left;
+      color: white;
+      padding: 10px;
+
+      margin-left: 11%;
+      float: left;
+       
+    }
+    .rightimg{
+      
+      font-size: 30px;
+      text-align:right;
+      color: white;
+      padding: 10px;
+      margin-right: 6%;
+      float: right;
+     
+  }
+}
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+     
+ <!-- header section starts  -->
+  
+ <header class="header">
+   
+    <nav>
+        <h1 class="logo">Beast Perfume </h1>
+        <ul>
+        
+            <li><a href="#">Home</a></li>
+          
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+    
+            <div class="searchbar">
+            <input id="searchbar"
+            onkeyup="search_animal()"
+            type="text" name="search"
+            placeholder="Search items.."><i class='bx bx-search'></i>
+             </div>
+             <div class="iconcart">
+                <i class='bx bx-cart-alt'></i>
+                <div class="totalquantity">0</div>
+            </div>
+    
+    <form action="">
+        <img src="images/user.png" class="user-pic" onclick="toggleMenu()">
+        <div class="sub-menu-wrap" id="subMenu">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <img src="images/user.png">
+                    <h3 id="user">prabhaharn</h3>
+                
+                   
+                </div>
+                <button class="signin"><a href="signin.html">SignIn</a></button>/ <button class="signup"><a href="signup.html">SignUp</a></button>
+                <hr>
+                <a href="#" class="sub-menu-link">
+                    <img src="images/profile.png">
+                    <p>Edit Profile</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <img src="images/setting.png">
+                    <p>settings</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <img src="images/help.png">
+                    <p>Help & Support</p>
+                    <span>></span>
+                </a>
+                <a href="signin.html" class="sub-menu-link" onclick="logout()">
+                    <img src="images/logout.png">
+                    <p id="log">logout</p>
+                    <span>></span>
+                </a>
+            
+            </div>
+        </div>
+    </form>
+    </ul>
+    </nav>
+    </header>
+        <!-- header section ends  -->
+
+
+
+    
+    <!-- swiper section starts  -->
+   
+ 
+ 
+<!-- Swiper main container -->
+<div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide"><img src="https://i.postimg.cc/GhF0zm41/slider1.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="https://i.postimg.cc/9ffvWPJW/slider2.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="https://i.postimg.cc/zG2xFsFr/womensslider3.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="https://i.postimg.cc/tT3dwwW7/menslider2.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="https://i.postimg.cc/jSBz5thL/kidsslider2.jpg" alt=""></div>
+      ...
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+  
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+</div>
+ </div>
+<!-- slider section ends  -->
+
+<div class="products">
+    <h2>BEAST PERFUMES</h2>
+   </div> 
+
+
+<div class="ourproducts">
+    <hr>
+    <h3>Our Products</h3>
+    <hr>
+</div>
+
+<!--   product section starts -->
+
+<div class="container">
+
+    <!-- filter buttons -->
+   
+       <div class="filter-button">
+           <button class="active" data-name="all">Show all</button>
+           <button data-name="mens">Men's</button>
+           <button data-name="womens">Women's</button>
+           <button data-name="kids">Kids's</button>
+           <button data-name="unisex">Unisex</button>
+       </div>
+   
+   <!-- images cards -->
+   
+   <div class="filterable-cards">
+   <div class="card" data-name="mens">
+       <img src="images/products/Men/1-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">men's perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="mens">
+       <img src="images/products/Men/2-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">men's perfume</h6>
+           <p class="card-text">$65</p>
+       </div>
+   </div>
+   <div class="card" data-name="mens">
+       <img src="images/products/Men/3-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">men's perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="mens">
+       <img src="images/products/Men/4-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">men's perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="mens">
+       <img src="images/products/Men/5-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">men's perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="mens">
+       <img src="images/products/Men/6-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">men's perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="womens">
+       <img src="images/products/Women/1-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">Women's perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="womens">
+       <img src="images/products/Women/2-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">Women's perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="womens">
+       <img src="images/products/Women/3-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">Women's perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="womens">
+       <img src="images/products/Women/4-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">Women's perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="womens">
+       <img src="images/products/Women/5-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">Women's perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="womens">
+       <img src="images/products/Women/6-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">Women's perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="unisex">
+       <img src="images/products/Unisex/1-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">Unisex perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="unisex">
+       <img src="images/products/Unisex/2-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">Unisex perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="unisex">
+       <img src="images/products/Unisex/3-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">Unisex perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="unisex">
+       <img src="images/products/Unisex/4-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">Unisex perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="unisex">
+       <img src="images/products/Unisex/5-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">Unisex perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+   <div class="card" data-name="unisex">
+       <img src="images/products/Unisex/6-1.png" alt="">
+       <div class="card-body">
+           <h6 class="card-title">Unisex perfume</h6>
+           <p class="card-text">$50</p>
+       </div>
+   </div>
+</div>
+   
+   </div> 
+
+
+
+
+   <div class="gifimg">
+    <h2 class="leftimg">U.R.Lovely & U.R.Sweet</h2>
+    <h2 class="rightimg">Brown Wallet
+  Eau De Parfum</h2>
+    <video autoplay muted loop src="images/vidios/vidio1.mp4" class="backvdo1"></video>
+    <video autoplay muted loop src="images/vidios/vidio2.mp4" class="backvdo2"></video>
+    </div>
+   
+
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+         let subMenu = document.getElementById("subMenu");
+
+function toggleMenu()
+{
+    subMenu.classList.toggle("open-menu");
+}
+
+
+
+
+
+
+
+
+    // var dummyname = document.getElementById("user");
+    // var login = document.getElementById("log");
+
+    // if (login.textContent === 'logout') {
+    //     // If user is logged in, clear username and change button text to "login"
+    //     dummyname.textContent = "user_name";
+    //     login.textContent = 'login';
+    //     // Clear username from localStorage
+    //     localStorage.removeItem("username");
+    // } else {
+    //     // If user is logged out, retrieve username from localStorage
+    //     var storedname = localStorage.getItem("username");
+     
+    // }
+
+
+
+
+//swiper section
+
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  autoplay: {
+    delay: 3000, // Delay between transitions in milliseconds
+    disableOnInteraction: false // Stop autoplay on interaction
+  },
+  slidesPerView: 1, // Number of slides per view
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  }
+});
+
+
+
+//select all filter buttons and filterable cards
+
+const filterbutton = document.querySelectorAll(".filter-button button");
+const filterablecards = document.querySelectorAll(".filterable-cards .card");
+
+//defining the filter cards function
+
+const filtercards = e =>{
+document.querySelector(".active").classList.remove("active");
+e.target.classList.add("active");
+  
+//iterate over each filterable cards
+
+filterablecards.forEach(card => {
+
+    //add hide class to hide the cards intially
+    card.classList.add("hide");
+
+    //Check if the card is selected or all is selected
+
+    if(card.dataset.name === e.target.dataset.name || e.target.dataset.name === "all")
+    {
+        card.classList.remove("hide");
+    }
+});
+
+
+};
+
+
+
+
+//add click event listener to each filter button
+
+filterbutton.forEach(button =>  button.addEventListener("click",filtercards));
+    
+</script>
+    
+</body>
+</html>

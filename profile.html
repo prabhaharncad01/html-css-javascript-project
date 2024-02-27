@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+    <style>
+        
+        *{
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+              font-family: 'poppins', sans-serif;
+          }
+         body{
+            background-color: #51e2f5;
+         }
+          nav{
+    background:#4070f4;
+    width: 100%;
+    padding:  10px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo{
+   
+    text-transform: uppercase;
+    color: aqua;
+    text-wrap: wrap;
+
+}
+
+
+
+.user-pic{
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+nav ul{
+    width: 100%;
+    text-align: left;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+   
+}
+
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover{
+    color: red;
+}
+
+
+
+
+.sub-menu-wrap{
+    position: absolute;
+    top: 100%;
+    right:10%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    
+}
+
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
+    
+}
+
+
+
+
+.sub-menu{
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+   
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+  
+}
+
+.user-info h3{
+    font-weight: 500;
+    
+}
+
+.user-info >.signin,.signup{
+    display: inline-block;
+    text-wrap: wrap;
+}
+
+.signin{
+    margin: 10px;
+    padding: 10px;
+    border: #fff 1px solid;
+    box-shadow: #e5e5e5;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.signup{
+    margin: 10px;
+    padding: 10px;
+    border: #fff 1px solid;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+}
+.signup:hover{
+ background-color: #51e2f5;
+ color: #4070f4;
+ transform: translateX(5px);
+}
+
+.signin:hover{
+    background-color: #51e2f5;
+ color: #4070f4;
+ transform: translateX(5px);
+}
+.user-info  img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    
+}
+
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+    
+}
+
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+   
+}
+
+.sub-menu-link  p{
+    width: 100%;
+
+}
+
+.sub-menu-link img{
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+    
+}
+
+.sub-menu-link  span{
+    font-size: 22px;
+    transition: transform 0.5s;
+
+}
+
+.sub-menu-link:hover span{
+     transform: translateX(5px);
+    
+}
+
+.sub-menu-link:hover p{
+    font-weight: 600;
+
+}
+
+
+#searchbar {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px;
+    box-sizing: border-box;
+ 
+  display: inline-block;
+
+}
+
+
+ .bx-search{
+    color: #fff;
+    cursor: pointer;
+   height: fit-content;
+   width: 10px;
+   border-right:#e5e5e5;
+   margin-top: 10px;
+   margin-bottom: 10px;
+    padding: 10px;
+   display: inline-block;
+ font-size: 25px;
+} 
+
+.searchbar{
+    border:0px solid black;
+    display: flex;
+}
+
+.iconcart{
+    display: flex;
+    margin-left: 30px;
+}
+
+
+.iconcart .bx-cart-alt{
+
+/* position: absolute; */
+display: inline-block;
+text-align: center;
+align-items: center;
+justify-content: center;
+}
+
+.bx-cart-alt{
+font-size: 30px;
+padding: 8px;
+display: inline-flex;
+color: #fff;
+position: relative;
+cursor: pointer;
+}
+
+
+
+
+.iconcart .totalquantity{
+position: relative;
+/* z-index: 2; */
+display: inline-flex;
+color: red;
+font-size: 20px;
+cursor: pointer;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    
+ <!-- header section starts  -->
+  
+ <header class="header">
+   
+    <nav>
+        <h1 class="logo">Beast Perfume </h1>
+        <ul>
+        
+            <li><a href="#">Home</a></li>
+          
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+    
+            <div class="searchbar">
+            <input id="searchbar"
+            onkeyup="search_animal()"
+            type="text" name="search"
+            placeholder="Search items.."><i class='bx bx-search'></i>
+             </div>
+             <div class="iconcart">
+                <i class='bx bx-cart-alt'></i>
+                <div class="totalquantity">0</div>
+            </div>
+    
+    <form action="">
+        <img src="images/user.png" class="user-pic" onclick="toggleMenu()">
+        <div class="sub-menu-wrap" id="subMenu">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <img src="images/user.png">
+                    <h3 id="user"></h3>
+                
+                   
+                </div>
+                <button class="signin"><a href="signin.html">SignIn</a></button>/ <button class="signup"><a href="signup.html">SignUp</a></button>
+                <hr>
+                <a href="#" class="sub-menu-link">
+                    <img src="images/profile.png">
+                    <p>Edit Profile</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <img src="images/setting.png">
+                    <p>settings</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <img src="images/help.png">
+                    <p>Help & Support</p>
+                    <span>></span>
+                </a>
+                <a href="signin.html" class="sub-menu-link">
+                    <img src="images/logout.png">
+                    <p>LogIn</p>
+                    <span>></span>
+                </a>
+            
+            </div>
+        </div>
+    </form>
+    </ul>
+    </nav>
+    </header>
+        <!-- header section ends  -->
+
+
+
+    <script>
+           let subMenu = document.getElementById("subMenu");
+
+function toggleMenu()
+{
+    subMenu.classList.toggle("open-menu");
+}
+
+
+document.getElementById("user").innerHTML=localStorage.getItem("username")
+
+    </script>
+</body>
+</html>
